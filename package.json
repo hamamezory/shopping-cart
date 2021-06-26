@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "heroku-postbuild": "cd interface && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
       "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix interface npm run build --prefix interface",
