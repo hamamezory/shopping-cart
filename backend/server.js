@@ -15,22 +15,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 
-// --> Add this
-// ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', 'http://localhost:5000', 'https://shopping-cart1989.herokuapp.com']
-const corsOptions = {
-  origin: function (origin, callback) {
-    console.log("** Origin of request " + origin)
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable")
-      callback(null, true)
-    } else {
-      console.log("Origin rejected")
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-//end add this
+const PORT = process.env.PORT || 5000;
 // --> Add this
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
@@ -41,5 +26,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 //end add this
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
