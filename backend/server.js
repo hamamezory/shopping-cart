@@ -9,13 +9,9 @@ const app = express();
 
 app.use(express.json());
 
-/*app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "API running..." });
-});*/
-
-app.use("/api/products", productRoutes);
-
-const PORT = process.env.PORT || 5000;
+});
 // --> Add this
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
@@ -26,4 +22,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 //end add this
+app.use("/api/products", productRoutes);
+
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
