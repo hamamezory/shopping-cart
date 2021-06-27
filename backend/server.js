@@ -2,7 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const productRoutes = require("./routes/productRoutes");
 const connectDB = require("./config/db");
-
+//new code
+var path = require('path');
+//end new code
 connectDB();
 
 const app = express();
@@ -12,7 +14,11 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ message: "API running..." });
 });
-// --> Add this
+//new code
+app.use('/interface', express.static(path.join(__dirname, '../interface/build/index.html')));
+//end new code
+
+/*// --> Add this
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, './interface/build')));
@@ -21,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, './interface/build', 'index.html'));
   });
 }
-//end add this
+//end add this*/
 app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
