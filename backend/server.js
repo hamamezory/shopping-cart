@@ -10,21 +10,19 @@ const app = express();
 app.use(express.json());
 
 
-
-
-// --> Add this
-//if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, '../interface/build')));
-
 app.get("/", (req, res) => {
   res.json({ message: "API running..." });
 });
+
+// --> Add this
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, '../interface/build')));
 // Handle React routing, return all requests to React app
   app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname+ '../interface/build/index.html'));
+    res.sendFile(path.join(__dirname,'../interface/build','index.html'));
   });
-//}
+}
 //end add this
 app.use("/api/products", productRoutes);
 
