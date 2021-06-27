@@ -13,7 +13,7 @@ app.use(express.json());
   res.json({ message: "API running..." });
 });*/
 
-//app.use("/api/products", productRoutes);
+app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
 // --> Add this
