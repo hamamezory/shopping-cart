@@ -15,16 +15,16 @@ app.get("/", (req, res) => {
   res.json({ message: "API running..." });
 });
 //new code
-app.use('/interface', express.static(path.join(__dirname, '../interface/build/index.html')));
+app.use('/interface', express.static(path.join(__dirname, '/interface')));
 //end new code
 
 /*// --> Add this
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
-  app.use(express.static(path.join(__dirname, './interface/build')));
+  app.use(express.static(path.join(__dirname, '/interface/build')));
 // Handle React routing, return all requests to React app
   app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, './interface/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '/interface/build', 'index.html'));
   });
 }
 //end add this*/
