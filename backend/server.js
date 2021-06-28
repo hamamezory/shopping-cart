@@ -24,10 +24,11 @@ if (process.env.NODE_ENV === 'production') {
 // Handle React routing, return all requests to React app
   app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname,'../interface/build','index.html'));
+    app.use("/api/products", productRoutes);
   });
 }
 //end add this
-//app.use("/api/products", productRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 
