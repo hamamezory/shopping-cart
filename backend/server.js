@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 //end add this
-app.use("/api/products", productRoutes);
+//app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
 
