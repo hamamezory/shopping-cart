@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 // --> Add this
-if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '../interface/build')));
   
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname,'../interface/build','index.html'));
     app.use("/api/products", productRoutes);
   });
-}
+//}
 //end add this
 
 
