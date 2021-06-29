@@ -27,6 +27,11 @@ if (process.env.NODE_ENV === 'production') {
     app.use("/api/products", productRoutes);
   });
 }
+else
+{
+   app.get('/', function(req, res) {
+    res.sendFile('API is Runnuing');
+}
 //end add this
 
 
