@@ -24,7 +24,6 @@ const HomeScreen = () => {
       <div className="homescreen__products">
         {loading ? (
           <h2>Loading...</h2>
-    console.log(products);
         ) : error ? (
           <h2>{error}</h2>
         ) : (
