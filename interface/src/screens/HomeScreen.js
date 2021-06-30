@@ -28,6 +28,7 @@ const HomeScreen = () => {
           <h2>{error}</h2>
         ) : (
           products.map((product) => (
+            return(
             <Product
               key={product._id}
               name={product.name}
@@ -36,6 +37,7 @@ const HomeScreen = () => {
               imageUrl={product.imageUrl}
               productId={product._id}
             />
+                )
           ))
         )}
       </div>
