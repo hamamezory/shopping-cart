@@ -28,16 +28,17 @@ const HomeScreen = () => {
           <h2>{error}</h2>
         ) : (
           products.map((product) => (
-            return(
-            <Product
+            
+            <Product [
               key={product._id}
               name={product.name}
               description={product.description}
               price={product.price}
               imageUrl={product.imageUrl}
-              productId={product._id}
+              productId={product._id} ]
+
             />
-                )
+               
           ))
         )}
       </div>
